@@ -1,0 +1,12 @@
+FROM ruby:3.2.2 AS climb-rails
+
+# Default directory
+ENV INSTALL_PATH /opt/app
+RUN mkdir -p $INSTALL_PATH
+
+RUN gem install rails bundler
+
+WORKDIR /opt/app
+
+# Run a shell
+CMD ["/bin/bash"]
