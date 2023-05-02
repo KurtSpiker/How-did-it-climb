@@ -45,6 +45,8 @@ services:
       - ./frontend/node_modules:/usr/src/climb-react/node_modules
     ports:
       - "3000:3000"
+    environment:
+      - WATCHPACK_POLLING=true
 
   sidekiq:
     build:
