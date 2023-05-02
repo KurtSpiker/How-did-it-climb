@@ -1,6 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
+import NavigationBar from './components/NavigationBar';
+import User from './components/User';
+import Climb from './components/Climb';
+import Creation from './components/Creation';
+import Home from './components/Home';
+import { Route, Routes } from 'react-router-dom';
 
 
 const BACKEND_API_URL = process.env.BACKEND_API_URL || 'http://localhost:8020';
@@ -24,6 +30,16 @@ function App() {
 
   return (
     <div className="App">
+      <NavigationBar>
+
+      </NavigationBar>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/climb:id" element={<Climb/>}/>
+        <Route path="/user:id" elemetn={<User/>}/>
+        <Route path="/create" element={<Creation/>}/>
+      </Routes>
+
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         {content}
