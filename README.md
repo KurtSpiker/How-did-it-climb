@@ -15,4 +15,6 @@ To start the server, run:
 2. `docker­ compose run climb-rails rake db:migrate`
 
 
-The server can be accessed on http://localhost:8020
+The backend server can be accessed on http://localhost:8020
+
+The frontend server can be accessed on http://localhost:8020

@@ -1,6 +1,5 @@
 .git
-.dockerignore
 .env
-node_modules/
-vendor/bundle/
-tmp/
+backend/node_modules/
+backend/vendor/bundle/
+backend/tmp/

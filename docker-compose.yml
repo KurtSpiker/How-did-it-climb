@@ -20,10 +20,11 @@ services:
       - climb-rails-redis:/var/lib/redis/data
 
   climb-rails:
-    build:
-      context: .
+    build: 
+      context: ./backend
+      dockerfile: ./dockerfiles/Dockerfile.climbrails
     volumes:
-      - ./:/opt/app
+      - ./backend:/opt/app
     links:
       - postgres
       - redis
@@ -32,9 +33,23 @@ services:
     env_file:
       - .env
 
+  climb-react:
+    build: 
+      context: ./frontend
+      dockerfile: dockerfiles/Dockerfile.climbreact
+    depends_on:
+      - climb-rails
+    command: npm start
+    volumes:
+      - ./frontend/:/usr/src/climb-react
+      - ./frontend/node_modules:/usr/src/climb-react/node_modules
+    ports:
+      - "3000:3000"
+
   sidekiq:
     build:
-      context: .
+      context: ./backend
+      dockerfile: ./dockerfiles/Dockerfile.climbrails
     command: bundle exec sidekiq 
     links:
       - postgres
@@ -45,7 +60,7 @@ services:
   nginx:
     build:
       context: .
-      dockerfile: ./dockerfiles/Dockerfile.nginx
+      dockerfile: ./backend/dockerfiles/Dockerfile.nginx
     links:
       - climb-rails
     ports:

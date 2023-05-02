@@ -1,0 +1,10 @@
+FROM node:latest AS react-helper
+
+# Default directory
+RUN mkdir -p /usr/src/climb-react
+
+
+WORKDIR /usr/src/climb-react
+
+# Run a shell
+CMD ["/bin/bash"]
