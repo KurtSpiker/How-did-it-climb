@@ -19,8 +19,8 @@ const fetchContent = async (updateContent) => {
       'Content-Type': 'application/json',
     },
   });
-  const data = await response.json();
-  updateContent(data.content);
+  const data = await response.text();
+  updateContent(data);
 };
 
 function App() {
