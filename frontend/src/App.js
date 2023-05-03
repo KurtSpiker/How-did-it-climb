@@ -12,7 +12,8 @@ import { Route, Routes } from 'react-router-dom';
 const BACKEND_API_URL = process.env.BACKEND_API_URL || 'http://localhost:8020';
 
 const fetchContent = async (updateContent) => {
-  const response = await fetch(`${BACKEND_API_URL}/gyms`,{
+  const response = await fetch(`${BACKEND_API_URL}/api/gyms`,{
+    method: "GET",
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
