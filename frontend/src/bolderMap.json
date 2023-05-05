@@ -1,0 +1,90 @@
+[
+  {
+    "id": "",
+    "title": "Section1",
+    "shape": "poly",
+    "name": "Section1",
+    "fillColor": "#eab54d4d",
+    "strokeColor": "black",
+    "coords": [
+      358,163,384,128,310,26,230,25,192,58,170,81,167,268,204,270,300,221,358,221
+    ]
+  },
+  {
+    "id": "",
+    "title": "Section2",
+    "shape": "poly",
+    "name": "Section2",
+    "fillColor": "#eab54d4d",
+    "strokeColor": "black",
+    "coords": [
+      358,160,387,128,540,126,593,79,771,84,810,141,808,226,783,226,359,219
+    ]
+  },
+  {
+    "id": "",
+    "title": "Section3",
+    "shape": "poly",
+    "name": "Section3",
+    "fillColor": "#eab54d4d",
+    "strokeColor": "black",
+    "coords": [
+      808,227,810,141,901,139,965,74,1155,74,1247,165,1252,232
+    ]
+  },
+  {
+    "id": "",
+    "title": "Section4",
+    "shape": "poly",
+    "name": "Section4",
+    "fillColor": "#eab54d4d",
+    "strokeColor": "black",
+    "coords": [
+      1252,231,1147,231,1147,591,1248,589
+    ]
+  },
+  {
+    "id": "",
+    "title": "Section5",
+    "shape": "poly",
+    "name": "Section5",
+    "fillColor": "#eab54d4d",
+    "strokeColor": "black",
+    "coords": [
+      437,295,387,311,327,330,322,519,434,611,437,378,436,335
+    ]
+  },
+  {
+    "id": "",
+    "title": "Section6",
+    "shape": "poly",
+    "name": "Section6",
+    "fillColor": "#eab54d4d",
+    "strokeColor": "black",
+    "coords": [
+      438,294,436,467,902,473,904,311,827,346,542,349,512,339
+    ]
+  },
+  {
+    "id": "",
+    "title": "Section7",
+    "shape": "poly",
+    "name": "Section7",
+    "fillColor": "#eab54d4d",
+    "strokeColor": "black",
+    "coords": [
+      902,455,905,311,957,331,1010,424,1005,543,941,615,906,616
+    ]
+  },
+  {
+    "id": "",
+    "title": "Section8",
+    "shape": "poly",
+    "name": "Section8",
+    "fillColor": "#eab54d4d",
+    "strokeColor": "black",
+    "coords": [
+      906,616,904,473,435,467,434,611
+    ]
+  }
+]
