@@ -1,3 +1,3 @@
 class Gym < ApplicationRecord
-    has_many :route
+    has_many :routes
 end

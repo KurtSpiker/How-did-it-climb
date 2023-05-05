@@ -18,5 +18,6 @@ module ClimbRails
                          { namespace: 'climb-rails::cache' }
 
     config.active_job.queue_adapter = :sidekiq
+    config.api_only = true
   end
 end
