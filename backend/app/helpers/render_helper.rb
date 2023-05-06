@@ -11,7 +11,7 @@ module RenderHelper
   end
 
   def save_and_render(record)
-    render_validation_errors(record) if record.invalid?
+    return render_validation_errors(record) if record.invalid?
 
     if record.save
       render json: record, status: :created
@@ -31,9 +31,9 @@ module RenderHelper
   def render_validation_errors(record)
     errors = []
 
-    record.errors.messages.each do |attribute, errors|
-      errors.each do |error|
-        errors << invalid_attribute_error(attribute)
+    record.errors.messages.each do |attribute, validation_errors|
+      validation_errors.each do |validation_error|
+        errors << invalid_attribute_error(attribute, "#{attribute} #{validation_error}")
       end
     end
     render json: {errors: errors}, status: :unprocessable_entity

@@ -11,10 +11,10 @@ class ApplicationController < ActionController::API
     render_unprocessible_entity("parameters are missing", e)
   end
 
-  # Was expecting a parameter which was not provided
   rescue_from ActiveModel::ForbiddenAttributesError do |e|
     render_unprocessible_entity("unexpected attribute", e)
   end
+
 
   def request_data_attributes
       ActionController::Parameters.new(ActiveModelSerializers::Deserialization.jsonapi_parse!(params))

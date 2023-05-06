@@ -5,4 +5,3 @@ module Api
     belongs_to :gym, serializer: GymSerializer
   end
 end
-   
