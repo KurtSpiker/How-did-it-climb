@@ -11,3 +11,6 @@ Gym.destroy_all
 
 boldr = Gym.create(name: "Boldr")
 Route.create([{description: "route 1", gym: boldr, colour: "green", grade: "v1" }, {description: "route 2", gym: boldr, colour: "blue", grade: "v9" }, {gym: boldr, colour: "green", grade: "v5" }])
+
+coyote = Gym.create(name: "Coyote")
+Route.create!({description: "coyote route", gym: coyote, colour: "white", grade: "v1"})
