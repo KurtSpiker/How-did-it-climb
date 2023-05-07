@@ -10,9 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_06_181755) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_07_044609) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "climbs", force: :cascade do |t|
+    t.string "comment"
+    t.integer "attempts"
+    t.boolean "topped"
+    t.boolean "zoned"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "route_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["route_id"], name: "index_climbs_on_route_id"
+    t.index ["user_id"], name: "index_climbs_on_user_id"
+  end
 
   create_table "gyms", force: :cascade do |t|
     t.string "name"
@@ -31,5 +44,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_06_181755) do
     t.index ["gym_id"], name: "index_routes_on_gym_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "climbs", "routes"
+  add_foreign_key "climbs", "users"
   add_foreign_key "routes", "gyms"
 end
