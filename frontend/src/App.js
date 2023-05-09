@@ -7,6 +7,7 @@ import Climb from './components/Climb';
 import Creation from './components/Creation';
 import Home from './components/Home';
 import { Route, Routes } from 'react-router-dom';
+import Login from './components/Login';
 
 
 const BACKEND_API_URL = process.env.BACKEND_API_URL || 'http://localhost:8020';
@@ -39,6 +40,7 @@ function App() {
         <Route path="/climb:id" element={<Climb/>}/>
         <Route path="/user:id" elemetn={<User/>}/>
         <Route path="/create" element={<Creation/>}/>
+        <Route path="/login" element={<Login/>}/>
       </Routes>
 
       <header className="App-header">
