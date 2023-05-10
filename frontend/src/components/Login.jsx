@@ -7,18 +7,35 @@ export default function Login () {
   const [password, setPassword]= useState("")
 
   const handleCreateUser = async() => {
-    let formData = new FormData();
-    formData.append('user[email]', email);
-    formData.append('user[password]', password)
-    const response = await fetch(`http://localhost:8020/users`,{
+
+    const credentials = {
+      "email": email,
+      "password": password
+    }
+    const loginBody = {
+      "user": credentials
+    }
+
+    // Take the username and password and call the login API
+    const response = await fetch(`http://localhost:8020/api/login`,{
       method: "POST",
-      body: formData
+      body: JSON.stringify(loginBody),
+      headers: {
+        "Content-Type": "application/json"
+      }
     })
 
-    console.log(response)
+    // TODO this is pulling out of the header, which fails because of CORS. Need to move it into the body of the response
 
-    const response2 = await fetch(`http://localhost:8020/api/gyms`,{
-      method: "GET"
+    //If that worked, it should have included an Authorization header in the response, which contains the bearer token
+    // Grab that, store it, and pass it as the Authorization header in future requests
+    let authHeader = response.headers.get("Authorization");
+    const response2 = await fetch(`http://localhost:8020/api/current_user`,{
+      method: "GET",
+      headers: {
+        "Authorization": authHeader,
+        "Content-Type": "application/json"
+      }
     })
 
     console.log(response2)
