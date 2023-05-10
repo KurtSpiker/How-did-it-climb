@@ -68,8 +68,7 @@ class Api::Auth::RegistrationsController < Devise::RegistrationsController
     if request.method == "POST" && resource.persisted?
       render json: {
         status: {code: 200, message: "Signed up sucessfully."},
-        data: Api::Auth::UserSerializer.new(resource).as_json
-        #data: UserSerializer.new(resource).serializable_hash[:data][:attributes] ## TODO do I need the data attributes bit?
+        data: Api::Auth::UserSerializer.new(resource, token: request.env['warden-jwt_auth.token'])
       }, status: :ok
     elsif request.method == "DELETE"
       render json: {

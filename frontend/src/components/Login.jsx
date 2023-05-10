@@ -25,15 +25,14 @@ export default function Login () {
       }
     })
 
-    // TODO this is pulling out of the header, which fails because of CORS. Need to move it into the body of the response
-
-    //If that worked, it should have included an Authorization header in the response, which contains the bearer token
+    //If that worked, it should include a `token` field in body.data
     // Grab that, store it, and pass it as the Authorization header in future requests
-    let authHeader = response.headers.get("Authorization");
+    const responseBody = await response.json();
+    const bearerToken = responseBody?.data?.token;
     const response2 = await fetch(`http://localhost:8020/api/current_user`,{
       method: "GET",
       headers: {
-        "Authorization": authHeader,
+        "Authorization": `Bearer ${bearerToken}`,
         "Content-Type": "application/json"
       }
     })
