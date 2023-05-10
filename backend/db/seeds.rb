@@ -16,10 +16,10 @@ Route.create([
 coyote = Gym.create(name: "Coyote")
 c_route = Route.create!({description: "coyote route", gym: coyote, colour: "white", grade: "v1"})
 
-kurt = User.create!(username: "kurt")
-jarrett = User.create!(username: "jarrett")
+# kurt = User.create!(username: "kurt")
+# jarrett = User.create!(username: "jarrett")
 
-Climb.create!([
-  {comment: "so cool!", attempts: 5, topped: true, zoned: true, route: c_route, user: kurt},
-  {topped: false, route: c_route, user: jarrett}
-])
+# Climb.create!([
+#   {comment: "so cool!", attempts: 5, topped: true, zoned: true, route: c_route, user: kurt},
+#   {topped: false, route: c_route, user: jarrett}
+# ])
