@@ -1,4 +1,4 @@
-FROM node:14-alpine
+FROM node:latest as climb-react
 WORKDIR /usr/src/climb-react
 COPY package*.json ./
 RUN npm install
