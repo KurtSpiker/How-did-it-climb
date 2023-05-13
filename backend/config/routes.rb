@@ -16,7 +16,10 @@ Rails.application.routes.draw do
     resources :gyms, param: :id, only: [:index, :show, :create] do
       resources :routes, only: [:index, :create]
     end
-    resources :routes, only: [:show]
+    resources :routes, param: :id, only: [:show] do
+      resources :climbs, only: [:create, :index]
+    end
+    resources :climbs, only: [:show]
 
     get 'current_user', to: "current_user#index"
   end

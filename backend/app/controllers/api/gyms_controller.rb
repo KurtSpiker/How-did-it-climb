@@ -4,8 +4,6 @@ module Api
     before_action :load_gyms, only: :index
     before_action :load_gym, only: :show
 
-    before_action :authenticate_user!, only: :index
-
     def index
       render_object(@gyms)
     end
