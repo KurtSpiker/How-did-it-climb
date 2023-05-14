@@ -13,7 +13,10 @@ module Api
     end
 
     def create
-      new_gym = Gym.new(name: create_attributes[:name])
+      new_gym = Gym.new(
+        name: create_attributes[:name],
+        number_of_sections: create_attributes[:number_of_sections]
+      )
       save_and_render(new_gym)
     end
 
@@ -22,6 +25,7 @@ module Api
     def create_attributes
       request_data_attributes.tap { |attrs|
         attrs.require(:name)
+        attrs.permit(:number_of_sections)
       }
     end
 

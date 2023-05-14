@@ -18,7 +18,8 @@ module Api
       new_route = @gym.routes.new(
         grade: create_attributes[:grade],
         colour: create_attributes[:colour],
-        description: create_attributes[:description]
+        description: create_attributes[:description],
+        section_number: create_attributes[:section_number]
       )
       save_and_render(new_route)
     end
@@ -44,7 +45,8 @@ module Api
       request_data_attributes.permit([
         :grade,
         :colour,
-        :description
+        :description,
+        :section_number
       ])
     end
   end
